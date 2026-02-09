@@ -19,7 +19,7 @@ export function HomePage() {
     return (
         <>
 
-            <Header cart={} />
+            <Header cart={cart} />
 
             <div className="home-page">
                 <div className="products-grid">
