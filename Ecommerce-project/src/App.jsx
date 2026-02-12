@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   const [cart , setCart] = useState([]);
   useEffect(()=>{
-    axios.get("/api/cart-items?expand=product")  // (?expand=product) is called a query parameter 
+    axios.get('/api/cart-items?expand=product')  // (?expand=product) is called a query parameter 
            .then((response)=>{
             setCart(response.data);
          });
