@@ -24,7 +24,7 @@ function App() {
     //Instead of index we can write path="/" that does the same thing 
     <Routes>
       <Route index element={<HomePage cart={cart} fetchCartData={fetchCartData} />} />
-      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} fetchCartData={fetchCartData} />} />
       <Route path="orders" element={<OrdersPage cart={cart} />} />
       <Route path="tracking/:orderId/:productId" element={<TrackPackage cart={cart} />} />
       <Route path="*" element={<NotFoundPage cart={cart} />} />
