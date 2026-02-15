@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 import { HomePage } from './Pages/home/HomePage'
 import { CheckoutPage } from './Pages/checkout/CheckoutPage'
 import { OrdersPage } from './Pages/orders/OrdersPage'
-import { TrackPackage } from './Pages/TrackPackage'
+import { TrackPackage } from './Pages/TrackPage/TrackPackage'
+import { NotFoundPage } from './Pages/NotFoundPage/NotFoundPage'
 import './App.css'
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
       <Route index element={<HomePage cart={cart} />} />
       <Route path="checkout" element={<CheckoutPage cart={cart}/>} />
       <Route path="orders" element={<OrdersPage cart={cart}/>} />
-      <Route path="tracking" element={<TrackPackage/>} />
+      <Route path="tracking/:orderId/:productId" element={<TrackPackage cart={cart}/>} />
+      <Route path="*" element={<NotFoundPage cart={cart}/>} />
     </Routes> 
   )
 }
