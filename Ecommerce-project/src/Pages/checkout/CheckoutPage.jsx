@@ -35,7 +35,7 @@ export function CheckoutPage({ cart, fetchCartData }) {
                     <OrderSummary cart={cart} deliveryOptions={deliveryOptions} fetchCartData={fetchCartData} />
                     {paymentSummary && (
                         <>
-                            <PaymentSummary paymentSummary={paymentSummary} />
+                            <PaymentSummary paymentSummary={paymentSummary} fetchCartData={fetchCartData} />
                         </>
                     )}
 
