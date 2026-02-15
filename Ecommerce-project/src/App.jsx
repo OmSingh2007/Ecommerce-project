@@ -10,25 +10,25 @@ import { NotFoundPage } from './Pages/NotFoundPage/NotFoundPage'
 import './App.css'
 
 function App() {
-  const [cart , setCart] = useState([]);
-  useEffect(()=>{
-    const fetchAppData= async ()=>{
-      const response=await axios.get('/api/cart-items?expand=product')  // (?expand=product) is called a query parameter 
-            setCart(response.data);
-    }
-    fetchAppData();
-  },[]);
-  
+  const [cart, setCart] = useState([]);
+  const fetchCartData = async () => {
+    const response = await axios.get('/api/cart-items?expand=product')  // (?expand=product) is called a query parameter 
+    setCart(response.data);
+  }
+  useEffect(() => {
+    fetchCartData();
+  }, []);
+
 
   return (
     //Instead of index we can write path="/" that does the same thing 
     <Routes>
-      <Route index element={<HomePage cart={cart} />} />
-      <Route path="checkout" element={<CheckoutPage cart={cart}/>} />
-      <Route path="orders" element={<OrdersPage cart={cart}/>} />
-      <Route path="tracking/:orderId/:productId" element={<TrackPackage cart={cart}/>} />
-      <Route path="*" element={<NotFoundPage cart={cart}/>} />
-    </Routes> 
+      <Route index element={<HomePage cart={cart} fetchCartData={fetchCartData} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="orders" element={<OrdersPage cart={cart} />} />
+      <Route path="tracking/:orderId/:productId" element={<TrackPackage cart={cart} />} />
+      <Route path="*" element={<NotFoundPage cart={cart} />} />
+    </Routes>
   )
 }
 
