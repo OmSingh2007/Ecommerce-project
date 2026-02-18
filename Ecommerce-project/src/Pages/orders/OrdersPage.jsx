@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import axios from 'axios'
 import { OrdersGrid } from './OrdersGrid'
 import { useState, useEffect, Fragment } from 'react'
@@ -6,7 +7,7 @@ import './OrdersPage.css'
 export function OrdersPage({ cart, fetchCartData }) {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        axios.get('/api/orders?expand=products')
+        axios.get(`${API_URL}/api/orders?expand=products`)
             .then((response) => {
                 setOrders(response.data)
             });
