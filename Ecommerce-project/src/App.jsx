@@ -1,3 +1,4 @@
+import { API_URL } from './config'
 import axios from 'axios'
 import { Routes } from 'react-router'
 import { Route } from 'react-router'
@@ -12,7 +13,7 @@ import './App.css'
 function App() {
   const [cart, setCart] = useState([]);
   const fetchCartData = async () => {
-    const response = await axios.get('/api/cart-items?expand=product')  // (?expand=product) is called a query parameter 
+    const response = await axios.get(`${API_URL}/api/cart-items?expand=product`)  // (?expand=product) is called a query parameter 
     setCart(response.data);
   }
   useEffect(() => {
