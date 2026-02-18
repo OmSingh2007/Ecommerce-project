@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './TrackPackage.css'
@@ -11,7 +12,7 @@ export function TrackPackage({ cart }) {
     useEffect(() => {
         const fetchTrackingdata = async () => {
             try{
-            const response = await axios.get(`/api/orders/${orderId}?expand=products`);
+            const response = await axios.get(`${API_URL}/api/orders/${orderId}?expand=products`);
             setOrder(response.data);
             }
             catch(error){

@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import { PaymentSummary } from './PaymentSummary'
 import { OrderSummary } from './OrderSummary'
 import axios from 'axios'
@@ -9,11 +10,11 @@ export function CheckoutPage({ cart, fetchCartData }) {
     const [paymentSummary, setPaymentSummary] = useState(null);
     useEffect(() => {
         const fetchCheckoutdata = async () => {
-            let response = await axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
+            let response = await axios.get(`${API_URL}/api/delivery-options?expand=estimatedDeliveryTime`);
             setDeliveryOptions(response.data);
 
 
-            response = await axios.get('/api/payment-summary');
+            response = await axios.get(`${API_URL}/api/payment-summary`);
 
             setPaymentSummary(response.data);
         };

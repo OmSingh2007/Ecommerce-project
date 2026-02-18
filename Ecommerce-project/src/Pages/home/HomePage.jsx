@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import './HomePage.css'
@@ -8,7 +9,7 @@ export function HomePage({ cart, fetchCartData }) {
 
     useEffect(() => {
         const fetchHomeData = async ()=>{
-            const response = await axios.get("/api/products");
+            const response = await axios.get(`${API_URL}/api/products`);
         setProducts(response.data);
         }
         fetchHomeData();

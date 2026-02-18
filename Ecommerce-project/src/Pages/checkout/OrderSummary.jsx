@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import axios from 'axios';
 import { DeliveryOptions } from './DeliveryOptions'
 import { formatMoney } from '../../utils/money'
@@ -10,12 +11,12 @@ export function OrderSummary({cart , deliveryOptions , fetchCartData }) {
                     return deliveryOption.id === cartItem.deliveryOptionId;
                 });
                 const deleteCartItem = async ()=>{
-                    await axios.delete(`/api/cart-items/${cartItem.productId}`)
+                    await axios.delete(`${API_URL}/api/cart-items/${cartItem.productId}`)
                     await fetchCartData();
                 }
                 const updateCartItem= async ()=>{
                     const newQuantity=cartItem.quantity+1;
-                    await axios.put(`/api/cart-items/${cartItem.productId}`,{quantity:newQuantity})
+                    await axios.put(`${API_URL}/api/cart-items/${cartItem.productId}`,{quantity:newQuantity})
                     fetchCartData();
                 }
                 return (

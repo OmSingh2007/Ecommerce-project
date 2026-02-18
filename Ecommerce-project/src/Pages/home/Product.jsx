@@ -1,3 +1,4 @@
+import { API_URL } from '../../config'
 import { useState, useRef } from 'react';
 import { formatMoney } from '../../utils/money';
 import axios from 'axios'
@@ -5,7 +6,7 @@ export function Product({ product, fetchCartData}) {
     const [quantity , setQuantity] = useState(1);
     const addedMessageRef = useRef(null);
     const addToChart=async () => {
-                    await axios.post('/api/cart-items', { productId: product.id, quantity }); //quantity:quantity is equivalent to quantity
+                    await axios.post(`${API_URL}/api/cart-items`, { productId: product.id, quantity }); //quantity:quantity is equivalent to quantity
                     await fetchCartData();
                     if(addedMessageRef.current){
                         addedMessageRef.current.style.opacity='1';
