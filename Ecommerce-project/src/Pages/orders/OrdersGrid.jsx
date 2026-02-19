@@ -1,6 +1,7 @@
 import { formatMoney } from '../../utils/money'
 import dayjs from 'dayjs'
 import { Fragment } from 'react';
+import { API_URL } from '../../config';
 export function OrdersGrid({ orders }) {
     return (
         <div className="orders-grid">
@@ -51,7 +52,7 @@ export function OrdersGrid({ orders }) {
                                         </div>
 
                                         <div className="product-actions">
-                                            <a href={`/tracking/${order.id}/${orderProduct.product.id}`}>
+                                            <a href={`${API_URL}/tracking/${order.id}/${orderProduct.product.id}`}>
                                                 <button className="track-package-button button-secondary">
                                                     Track package
                                                 </button>
