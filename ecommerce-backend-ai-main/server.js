@@ -25,7 +25,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',                                // local Vite dev server
+    'https://ecommerce-project-omega-blush.vercel.app'      // deployed frontend on Vercel
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],                // only allow these HTTP methods
+  credentials: true                                          // allow cookies & auth headers
+}));
 app.use(express.json());
 
 // Serve images from the images folder
