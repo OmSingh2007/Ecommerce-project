@@ -52,7 +52,7 @@ export function OrdersGrid({ orders }) {
                                         </div>
 
                                         <div className="product-actions">
-                                            <a href={`${API_URL}/tracking/${order.id}/${orderProduct.product.id}`}>
+                                            <a href={`/tracking/${order.id}/${orderProduct.product.id}`}>
                                                 <button className="track-package-button button-secondary">
                                                     Track package
                                                 </button>
