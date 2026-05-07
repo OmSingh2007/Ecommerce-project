@@ -8,7 +8,7 @@ import { CheckoutPage } from './Pages/checkout/CheckoutPage'
 import { OrdersPage } from './Pages/orders/OrdersPage'
 import { TrackPackage } from './Pages/TrackPage/TrackPackage'
 import { NotFoundPage } from './Pages/NotFoundPage/NotFoundPage'
-import './App.css'
+import './App.css' 
 
 function App() {
   const [cart, setCart] = useState([]);
